@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+u1 = User.create(name: 'Tan', surname: 'my')
+
+c1 = Category.create(name: 'Foods', icon: 'picture', user: u1)
+c2 = Category.create(name: 'Households', icon: 'picture', user: u1)
+c3 = Category.create(name: 'shopping', icon: 'picture', user: u1)
+
+e1 = Expenditure.create(name: 'Instant lunch set', amount: 10, author: u1)
+e1.categories << c1
+
+e2 = Expenditure.create(name: 'Hair dryer', amount: 100.50, author: u1)
+e2.categories << c2
+
+e3 = Expenditure.create(name: 'Rice', amount: 100, author: u1)
+e3.categories << c1
+e3.categories << c2
