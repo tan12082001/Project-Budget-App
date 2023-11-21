@@ -1,0 +1,9 @@
+<h1>Categories Index page</h1>
+
+<h1>Total Budget: <%= User.find(1).total_budget %></h1>
+
+<% @categories.each do |category| %>
+    <p>Category name: <%= category.name %> </p>
+    <p>Category image: <%= category.icon %> </p>
+    <p>Category expenditures total: <%= category.expenditures_sum %> </p>
+<% end %>
