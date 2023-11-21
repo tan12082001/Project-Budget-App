@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_073233) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_21_130123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_073233) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "categories_expenditures", id: false, force: :cascade do |t|
+    t.bigint "expenditure_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["expenditure_id", "category_id"], name: "idx_on_expenditure_id_category_id_b8e91ce269", unique: true
+  end
+
   create_table "expenditures", force: :cascade do |t|
     t.string "name"
     t.float "amount"
@@ -30,12 +36,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_073233) do
     t.datetime "updated_at", null: false
     t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_expenditures_on_author_id"
-  end
-
-  create_table "expenditures_categories", id: false, force: :cascade do |t|
-    t.bigint "expenditure_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["expenditure_id", "category_id"], name: "idx_on_expenditure_id_category_id_5a032b743d", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_073233) do
   end
 
   add_foreign_key "categories", "users", on_delete: :cascade
+  add_foreign_key "categories_expenditures", "categories", on_delete: :cascade
+  add_foreign_key "categories_expenditures", "expenditures", on_delete: :cascade
   add_foreign_key "expenditures", "users", column: "author_id", on_delete: :cascade
-  add_foreign_key "expenditures_categories", "categories", on_delete: :cascade
-  add_foreign_key "expenditures_categories", "expenditures", on_delete: :cascade
 end
