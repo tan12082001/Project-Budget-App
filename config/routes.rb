@@ -4,16 +4,17 @@ Rails.application.routes.draw do
     sign_out: 'logout',
     registration: 'signup'
   }
+  get 'categories', to: 'categories#index', as: 'categories'
   devise_scope :user do
     authenticated :user do
-      root :to => 'categories#index', as: :authenticated_root
+      root to: redirect('/categories'), as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'splash_screen#index', as: :unauthenticated_root
+      root to: 'splash_screen#index', as: :unauthenticated_root
     end
   end
 
-  resources :users, only: [:index]
+  resources :users
   resources :categories do
     resources :expenditures
   end
