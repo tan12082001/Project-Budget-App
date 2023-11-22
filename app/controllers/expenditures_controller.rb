@@ -20,14 +20,14 @@ class ExpendituresController < ApplicationController
     @expenditure.author = current_user
     @categories = Category.where(id: expenditure_params[:category_ids])
     @categories.each do |category|
-        @expenditure.categories << category
+      @expenditure.categories << category
     end
     if @expenditure.save
-        flash[:success] = "Successfully added New Expenditure."
-        redirect_to category_expenditures_path(params[:category_id])
+      flash[:success] = 'Successfully added New Expenditure.'
+      redirect_to category_expenditures_path(params[:category_id])
     else
-        flash.now[:error] = "Error: Failed to Add new Expenditure!"
-        render :new
+      flash.now[:error] = 'Error: Failed to Add new Expenditure!'
+      render :new
     end
   end
 
@@ -35,11 +35,11 @@ class ExpendituresController < ApplicationController
     @expenditure = current_user.expenditures.find(params[:id])
 
     if @expenditure.destroy
-        flash[:success] = "Successfully delete the Expenditure."
-        redirect_to category_expenditures_path(params[:category_id])
+      flash[:success] = 'Successfully delete the Expenditure.'
+      redirect_to category_expenditures_path(params[:category_id])
     else
-        flash[:error] = "Error: Failed to delete the Expenditure!"
-        render :show
+      flash[:error] = 'Error: Failed to delete the Expenditure!'
+      render :show
     end
   end
 

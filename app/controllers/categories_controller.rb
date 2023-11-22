@@ -14,11 +14,11 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.user = current_user
     if @category.save
-        flash[:success] = "New Category added successfully!"
-        redirect_to categories_path
+      flash[:success] = 'New Category added successfully!'
+      redirect_to categories_path
     else
-        flash.now[:error] = "Error: Failed to add new Category!!"
-        render :new, locals: {category: @category}
+      flash.now[:error] = 'Error: Failed to add new Category!!'
+      render :new, locals: { category: @category }
     end
   end
 
@@ -29,25 +29,23 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-        flash[:success] = "Category successfully updated."
-        redirect_to categories_path
+      flash[:success] = 'Category successfully updated.'
+      redirect_to categories_path
     else
-        flash.now[:error] = "Error: Failed to update the category!"
-        render :edit
+      flash.now[:error] = 'Error: Failed to update the category!'
+      render :edit
     end
   end
 
   def destroy
     @category = Category.find(params[:id])
-    @category.expenditures.each do |expenditure|
-      expenditure.destroy
-    end
+    @category.expenditures.each(&:destroy)
     if @category.destroy
-        flash[:success] = "Category successfully deleted."
-        redirect_to categories_path
+      flash[:success] = 'Category successfully deleted.'
+      redirect_to categories_path
     else
-        flash.now[:error] = "Error: Failed to delete category!"
-        render :index
+      flash.now[:error] = 'Error: Failed to delete category!'
+      render :index
     end
   end
 
