@@ -12,8 +12,11 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |name, message| -%>
+      <div class="<%= name %>-flash">
+        <%= message %>
+      </div>
+    <% end -%>
     <%= yield %>
   </body>
 </html>
