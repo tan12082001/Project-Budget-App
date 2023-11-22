@@ -1,0 +1,10 @@
+<%= link_to "Back", category_expenditures_path %>
+
+<p>Categories included: </p>
+<% @expenditure.categories.each do |category| %>
+    <p>Category name: <%= category.name %></p>
+<% end %>
+<p>Expenditure name: <%= @expenditure.name %></p>
+<p>Expenditure created at: <%= @expenditure.created_at.strftime('%d %b %Y') %></p>
+<p>Expenditure amount: <%= @expenditure.amount %></p>
+<%= button_to 'DELETE', category_expenditure_path(@category, @expenditure), method: :delete %>
