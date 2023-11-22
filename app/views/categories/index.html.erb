@@ -1,9 +1,13 @@
 <h1>Categories Index page</h1>
 
-<h1>Total Budget: <%= current_user.total_budget %></h1>
-
 <% @categories.each do |category| %>
-    <p>Category name: <%= category.name %> </p>
-    <p>Category image: <%= category.icon %> </p>
-    <p>Category expenditures total: <%= category.expenditures_sum %> </p>
+    <%= link_to category_expenditures_url(category), class: "each-category-item" do %>
+        <p>Category expenditures total: <%= category.expenditures_sum %> </p>
+        <p>Category name: <%= category.name %> </p>
+        <p>Category image: <%= category.icon %> </p>
+        <p>Category created at: <%= category.created_at.strftime('%d %b %Y') %></p>
+    <% end %>
+    <%= button_to 'Update', edit_category_path(category), method: :get %>
+    <%= button_to 'DELETE', category, method: :delete %>
 <% end %>
+<%= link_to "Add new Category", new_category_path(user_id: current_user), class: "add-category" %>

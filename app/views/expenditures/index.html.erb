@@ -1,5 +1,13 @@
+<%= link_to "Back", categories_path %>
 <h1>Expenditures index page </h1>
+<div>
+  <p>Cat name: <%= @category.name %></p>
+  <p>Cat amount: <%= @category.expenditures_sum %></p>
+</div>
 <% @expenditures.each do |expenditure| %>
-    <p>Expenditure name: <%= expenditure.name %></p>
+    <h3><%= link_to "#{expenditure.name}", category_expenditure_path(@category, expenditure) %></h3>
+    <p>Expenditure created at: <%= expenditure.created_at.strftime('%d %b %Y') %></p>
     <p>Expenditure amount: <%= expenditure.amount %></p>
 <% end %>
+
+<%= link_to "Add new Expenditure", new_category_expenditure_path, class: "add-expenditure-button" %>
