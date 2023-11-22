@@ -1,0 +1,8 @@
+<nav>
+  <button id='home-button'><%= link_to "Home", current_user ? authenticated_root_path : unauthenticated_root_path %></button>
+  <h1>BudgetMap</h1>
+  <button><%= link_to "All Expenditures", all_expenditures_path %></button>
+  <% if current_user %>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, id: "sign-out-button" %>
+  <% end %>
+</nav>
