@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def index
     @user = current_user
-    @categories = @user.categories
+    @categories = @user.categories.includes(:expenditures)
   end
 
   def show; end
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = Category.includes(:expenditures).find(params[:id])
     @category.expenditures.each(&:destroy)
     if @category.destroy
       flash[:success] = 'Category successfully deleted.'

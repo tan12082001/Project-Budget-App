@@ -1,12 +1,13 @@
 class ExpendituresController < ApplicationController
   def index
-    @category = Category.find(params[:category_id])
+    @category = Category.includes(:expenditures).find(params[:category_id])
     @expenditures = @category.expenditures.order(created_at: :desc)
   end
 
   def show
-    @category = Category.find(params[:category_id])
-    @expenditure = Expenditure.find(params[:id])
+    @category = Category.includes(:expenditures).find(params[:category_id])
+    @expenditure = @category.expenditures.includes(:categories).find(params[:id])
+    # @expenditure = Expenditure.find(params[:id])
   end
 
   def new
