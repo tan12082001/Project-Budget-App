@@ -37,7 +37,9 @@ RSpec.describe 'Expenditure', type: :system do
       sleep(1)
       expect(current_path).to eq(category_expenditures_path(@category))
     end
+  end
 
+  context '#new action' do
     it 'new action should create new expenditure' do
       visit new_user_session_path
       fill_in 'Email', with: @user.email

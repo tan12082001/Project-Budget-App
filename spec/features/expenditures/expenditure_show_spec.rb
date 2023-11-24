@@ -26,7 +26,7 @@ RSpec.describe 'Expenditure', type: :system do
       expect(page).to have_content('Category one')
       expect(page).to have_content('$10.0')
       expect(page).to have_content('Expenditure one')
-      expect(page).to have_content("#{@expenditure.created_at.strftime('%d %b %Y')}")
+      expect(page).to have_content(@expenditure.created_at.strftime('%d %b %Y').to_s)
       expect(page).to have_content('DELETE')
     end
 
@@ -42,7 +42,9 @@ RSpec.describe 'Expenditure', type: :system do
       sleep(1)
       expect(current_path).to eq(category_expenditures_path(@category))
     end
+  end
 
+  context 'Delete action' do
     it 'Delete expenditure action' do
       visit new_user_session_path
       fill_in 'Email', with: @user.email

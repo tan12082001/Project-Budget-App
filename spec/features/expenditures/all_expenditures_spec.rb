@@ -30,9 +30,9 @@ RSpec.describe 'Expenditure', type: :system do
       expect(page).to have_content('Expenditure one')
       expect(page).to have_content('Expenditure two')
       expect(page).to have_content('Expenditure three')
-      expect(page).to have_content("#{@expenditure.created_at.strftime('%d %b %Y')}")
-      expect(page).to have_content("#{@expenditure2.created_at.strftime('%d %b %Y')}")
-      expect(page).to have_content("#{@expenditure3.created_at.strftime('%d %b %Y')}")
+      expect(page).to have_content(@expenditure.created_at.strftime('%d %b %Y').to_s)
+      expect(page).to have_content(@expenditure2.created_at.strftime('%d %b %Y').to_s)
+      expect(page).to have_content(@expenditure3.created_at.strftime('%d %b %Y').to_s)
     end
   end
 end

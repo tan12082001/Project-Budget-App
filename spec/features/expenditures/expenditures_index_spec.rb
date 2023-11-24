@@ -26,8 +26,8 @@ RSpec.describe 'Expenditure', type: :system do
       expect(page).to have_content('$ 10.0')
       expect(page).to have_css('img.category-img')
       expect(page).to have_content('Expenditure one')
-      expect(page).to have_content("#{@expenditure.created_at.strftime('%d %b %Y')}")
-      expect(page).to have_content("#{@expenditure.amount}")
+      expect(page).to have_content(@expenditure.created_at.strftime('%d %b %Y').to_s)
+      expect(page).to have_content(@expenditure.amount.to_s)
     end
 
     it 'back action should take to categories view' do
@@ -42,7 +42,9 @@ RSpec.describe 'Expenditure', type: :system do
       sleep(1)
       expect(current_path).to eq(categories_path)
     end
+  end
 
+  context 'new action' do
     it 'new action should direct to new view' do
       visit new_user_session_path
       fill_in 'Email', with: @user.email
