@@ -26,7 +26,7 @@
     </div>
   <% elsif @each_expenditure_nav %>
     <div class='new-object-nav'>
-      <%= link_to raw('&#x1F860;'), categories_path, class: 'back-icon' %>
+      <%= link_to raw('&#x1F860;'), category_expenditures_path(@category), class: 'back-icon' %>
       <h1 class='nav-title'>DETAILS</h1>
     </div>
   <% else %>
