@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   def show; end
 
   def new
+    @new_category_nav = true
     @category = Category.new
   end
 

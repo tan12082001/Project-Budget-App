@@ -1,16 +1,18 @@
 class ExpendituresController < ApplicationController
   def index
+    @expenditures_nav = true
     @category = Category.includes(:expenditures).find(params[:category_id])
     @expenditures = @category.expenditures.order(created_at: :desc)
   end
 
   def show
+    @each_expenditure_nav = true
     @category = Category.includes(:expenditures).find(params[:category_id])
     @expenditure = @category.expenditures.includes(:categories).find(params[:id])
-    # @expenditure = Expenditure.find(params[:id])
   end
 
   def new
+    @new_expenditure_nav = true
     @category = Category.find(params[:category_id])
     @expenditure = Expenditure.new
     @current_category_id = @category.id
