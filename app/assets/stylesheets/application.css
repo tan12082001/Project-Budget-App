@@ -185,7 +185,7 @@ input#expenditure_amount {
   font-size: 1.2rem;
 }
 
-.checkbox {
+.login-checkbox {
   padding: 4% 2%;
   font-size: var(--highlight-font-weight);
 }
