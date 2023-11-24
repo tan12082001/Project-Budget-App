@@ -9,9 +9,9 @@
 #   end
 u1 = User.create(name: 'Tan', surname: 'my')
 
-c1 = Category.create(name: 'Foods', icon: 'picture', user: u1)
-c2 = Category.create(name: 'Households', icon: 'picture', user: u1)
-c3 = Category.create(name: 'shopping', icon: 'picture', user: u1)
+c1 = Category.create(name: 'Foods', icon: 'https://fastly.picsum.photos/id/318/200/200.jpg?hmac=bXfpcSpOySqXMIev1AISKO15vvxPgau4JEA36kuhG1Y', user: u1)
+c2 = Category.create(name: 'Households', icon: 'https://fastly.picsum.photos/id/318/200/200.jpg?hmac=bXfpcSpOySqXMIev1AISKO15vvxPgau4JEA36kuhG1Y', user: u1)
+c3 = Category.create(name: 'shopping', icon: 'https://fastly.picsum.photos/id/318/200/200.jpg?hmac=bXfpcSpOySqXMIev1AISKO15vvxPgau4JEA36kuhG1Y', user: u1)
 
 e1 = Expenditure.create(name: 'Instant lunch set', amount: 10, author: u1)
 e1.categories << c1
