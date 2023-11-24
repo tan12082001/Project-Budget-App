@@ -7,16 +7,30 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
     <%= javascript_importmap_tags %>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
 
-  <body>
-    <%= render 'layouts/navbar' %>
-    <% flash.each do |name, message| -%>
-      <div class="<%= name %>-flash">
-        <%= message %>
-      </div>
-    <% end -%>
-    <%= yield %>
+  <body class="verticle-flex-display">
+    <% unless controller_name == 'splash_screen' && action_name == 'index' %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
+    <div class="main-container">
+      <% flash.each do |name, message| -%>
+        <div class="<%= name %>-flash">
+          <%= message %>
+        </div>
+      <% end -%>
+      <%= yield %>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#hamburger-button").click(function () {
+          $("#nav-links-container").fadeToggle();
+        });
+      });
+    </script>
   </body>
 </html>

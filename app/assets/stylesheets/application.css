@@ -1,15 +1,525 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+:root {
+  --main-color: #3778c2;
+  --second-color: #5fb523;
+  --font-color: #434b54;
+  --main-font-family: 'Nunito', sans-serif;
+  --highlight-font-size: 1.6rem;
+  --secondary-font-size: 1.3rem;
+  --highlight-font-weight: 700;
+  --secondary-font-weight: 500;
+  --common-bottom-margin: 0 0 4% 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font-family);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--main-color);
+}
+
+.verticle-flex-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.horizontal-flex-display {
+  display: flex;
+}
+
+nav {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.common-nav {
+  position: relative;
+  padding: 4% 2%;
+}
+
+.common-nav #nav-links-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color);
+  z-index: 1000;
+}
+
+#hamburger-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: var(--highlight-font-size);
+  cursor: pointer;
+  z-index: 2000;
+  color: #fff;
+}
+
+.ham-links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 28% 12%;
+}
+
+button#signout-button,
+#home-button,
+#allexp-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.3rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.home-allexp-signout-links {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+#common-nav-title {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-signup-nav,
+.new-object-nav {
+  padding: 4% 2%;
+  display: flex;
+}
+
+a.back-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: var(--highlight-font-weight);
+  text-decoration: none;
+}
+
+.nav-title {
+  font-weight: var(--secondary-font-weight);
+  margin: auto;
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.splash-container {
+  width: 100%;
+  height: 90%;
+  padding: 10%;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+.splash-logo-img-outer {
+  width: 100%;
+}
+
+.login-signup-outer {
+  margin: 10% 0;
+  width: 100%;
+}
+
+#login-button,
+#signup-button,
+.submit-action {
+  min-width: 220px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--second-color);
+  margin: var(--common-bottom-margin);
+}
+
+.login-signup-links,
+.submit-action {
+  font-size: var(--secondary-font-size);
+  font-weight: var(--highlight-font-weight);
+  color: #fff;
+  text-decoration: none;
+}
+
+.login-signup-links:hover {
+  color: var(--main-color);
+}
+
+#login-button:hover,
+#signup-button:hover {
+  background-color: #fff;
+}
+
+.login-signup-forms-container {
+  width: 100%;
+  height: 100%;
+  padding: 4% 0;
+  background-color: #fff;
+}
+
+input#user_email,
+input#user_password,
+input#user_name,
+input#user_surname,
+input#user_password_confirmation,
+input#category_name,
+input#category_icon,
+input#expenditure_name,
+input#expenditure_amount {
+  width: 100%;
+  border: 1px solid #5d5b5b;
+  padding: 4% 2%;
+  font-size: 1.2rem;
+}
+
+.checkbox {
+  padding: 4% 2%;
+  font-size: var(--highlight-font-weight);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  padding: 4%;
+  margin: 4%;
+}
+
+#login-link,
+#signup-link,
+#forget-password-link {
+  display: flex;
+  justify-content: center;
+  font-size: var(--secondary-font-size);
+  text-decoration: none;
+}
+
+.categories-index,
+.expenditures-index {
+  height: 100%;
+  background: #e4dfdf;
+}
+
+.categories-outer-container,
+.expenditures-outer-container {
+  width: 100%;
+  padding: 4% 4% 0 4%;
+  display: flex;
+  flex-direction: column;
+  background-color: #e4dfdf;
+}
+
+.category-container,
+.each-expenditure {
+  background-color: #fff;
+  margin: var(--common-bottom-margin);
+  padding: 2% 4%;
+}
+
+.img-info {
+  gap: 20px;
+}
+
+.each-category-item,
+.each-expenditure {
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.category-name {
+  font-size: var(--highlight-font-size);
+}
+
+.expenditure-name {
+  font-size: var(--highlight-font-size);
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+img.category-img {
+  width: 100px;
+  height: auto;
+}
+
+.cat-name-at,
+.exp-name-at {
+  padding: 6% 0;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.add-category-outer,
+.add-expenditure-outer,
+.save-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--second-color);
+  padding: 4%;
+}
+
+.delete-outer {
+  width: 100%;
+  background: var(--second-color);
+  padding: 4%;
+}
+
+#expenditure-delete-button {
+  width: 100%;
+}
+
+a.add-category,
+a.add-expenditure {
+  width: 90%;
+  padding: 4%;
+  border: 1px solid #fff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.update-action,
+.delete-action {
+  padding: 2px 4px;
+  border: none;
+  background: var(--second-color);
+  color: #fff;
+}
+
+.new-object-outer-container {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+form.new-category-form,
+.add-expenditure-form {
+  width: 100%;
+  height: 100%;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  padding: 4% 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.save-button,
+#expenditure-delete-button {
+  padding: 4%;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1.3rem;
+  background: none;
+}
+
+.checkboxs {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.all-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 4%;
+}
+
+.each-expenditure-container {
+  width: 100%;
+  height: 100%;
+  background-color: #e4dfdf;
+}
+
+.expenditure-info {
+  padding: 2%;
+}
+
+.category-names,
+.detaile-page-tile {
+  background-color: #fff;
+  margin: var(--common-bottom-margin);
+  padding: 6% 2%;
+}
+
+.cat-name-amount {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 6% 4%;
+}
+
+#total-budget {
+  margin: var(--common-bottom-margin);
+}
+
+.all-expenditures-container {
+  width: 100%;
+  height: 100%;
+  background: #e4dfdf;
+  padding: 2%;
+  text-align: center;
+}
+
+.expenditure {
+  background: #fff;
+  margin: var(--common-bottom-margin);
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  #hamburger-button {
+    display: none;
+  }
+
+  .common-nav {
+    position: static;
+    padding: 2% 4%;
+  }
+
+  .new-object-nav {
+    padding: 2% 4%;
+  }
+
+  .common-nav #nav-links-container {
+    display: flex;
+    position: static;
+  }
+
+  .ham-links {
+    width: 48%;
+    height: 0;
+    flex-direction: row;
+    padding: 0 0;
+  }
+
+  button#signout-button,
+  #home-button,
+  #allexp-button {
+    width: 100%;
+    padding: 0;
+    background: none;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+  }
+
+  button#signout-button {
+    width: 100px;
+    margin-left: 34px;
+  }
+
+  .home-allexp-signout-links {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .login-signup-nav {
+    padding: 2% 4%;
+  }
+
+  .splash-logo-img-outer {
+    align-items: center;
+  }
+
+  .login-signup-outer {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0 20%;
+  }
+
+  img#splash-img {
+    width: 300px;
+    height: auto;
+  }
+
+  #new_user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input#user_email,
+  input#user_password,
+  input#user_name,
+  input#user_surname,
+  input#user_password_confirmation,
+  input#category_name,
+  input#category_icon,
+  input#expenditure_name,
+  input#expenditure_amount,
+  .checkbox {
+    padding: 1% 4%;
+    margin: 1% 0;
+  }
+
+  .actions {
+    margin: 0;
+  }
+
+  .category-container,
+  .each-expenditure,
+  .category-names,
+  .detaile-page-tile {
+    margin: 0 0 2% 0;
+    padding: 1%;
+  }
+
+  .all-expenditures-container,
+  .expenditure {
+    padding: 0;
+  }
+
+  .expenditure {
+    width: 50%;
+    margin: 1% auto;
+  }
+
+  #total-budget {
+    margin: 0 0 1% 0;
+  }
+
+  .add-category-outer,
+  .add-expenditure-outer,
+  .save-outer,
+  .save-button,
+  a.add-category,
+  a.add-expenditure,
+  .delete-outer,
+  #expenditure-delete-button {
+    padding: 1%;
+  }
+
+  .cat-name-amount {
+    padding: 2% 4%;
+  }
+}
