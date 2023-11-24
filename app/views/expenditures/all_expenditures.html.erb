@@ -1,0 +1,11 @@
+<div class="all-expenditures-container">
+    <h1 id='total-budget'>Total Budget: $<%= current_user.total_budget %></h1>
+
+    <% @expenditures.each do |expenditure| %>
+        <div class='expenditure'>
+        <p>Expenditure name: <%= expenditure.name %></p>
+        <p>Expenditure created at: <%= expenditure.created_at.strftime('%d %b %Y') %></p>
+        <p>Expenditure amount: <%= expenditure.amount %></p>
+        </div>
+    <% end %>
+</div>

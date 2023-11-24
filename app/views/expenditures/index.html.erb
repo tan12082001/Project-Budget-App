@@ -1,0 +1,23 @@
+<div class="expenditures-index verticle-flex-display">
+  <div class='cat-name-amount'>
+    <p><%= @category.name %></p>
+    <p>$ <%= @category.expenditures_sum %></p>
+  </div>
+  <div class='expenditures-outer-container'>
+  <% @expenditures.each do |expenditure| %>
+    <div class='each-expenditure horizontal-flex-display'>
+      <div class='img-info horizontal-flex-display'>
+        <%= image_tag(@category.icon, alt: 'Category Icon', class: 'category-img') %>
+        <div class='exp-name-at verticle-flex-display'>
+          <h3><%= link_to "#{expenditure.name}", category_expenditure_path(@category, expenditure), class: 'expenditure-name' %></h3>
+          <p><%= expenditure.created_at.strftime('%d %b %Y') %></p>
+        </div>
+      </div>
+      <p class='expenditure-amount'>$ <%= expenditure.amount %></p>
+    </div>
+  <% end %>
+  </div>
+  <div class='add-expenditure-outer'>
+    <%= link_to "Add new Expenditure", new_category_expenditure_path, class: "add-expenditure" %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="edit-object-outer-container">
+  <%= link_to "Back", categories_path %>
+  <h1>Update Category Page</h1>
+  <%= form_with model: @category, class: "update-category-form" do |form| %>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, autofocus: true, autocomplete: "name", placeholder: "e.g. Foods" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :icon %>
+        <%= form.text_field :icon, autofocus: true, autocomplete: "icon", placeholder: "e.g. https://source.unsplash.com/user/c_v_r/100x100" %>
+      </div>
+
+      <div class="field">
+        <%= form.submit "Update", class: "save-button" %>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,47 @@
+<nav>
+  <% if current_page?(new_user_session_path) %>
+    <div class='login-signup-nav '>
+      <%= link_to raw('&#x1F860;'), current_user ? authenticated_root_path : unauthenticated_root_path, class: 'back-icon' %>
+      <h1 class='nav-title'>LOGIN</h1>
+    </div>
+  <% elsif current_page?(new_user_registration_path) %>
+    <div class='login-signup-nav'>
+      <%= link_to raw('&#x1F860;'), current_user ? authenticated_root_path : unauthenticated_root_path, class: 'back-icon' %>
+      <h1 class='nav-title'>REGISTER</h1>
+    </div>
+  <% elsif @new_category_nav %>
+    <div class='new-object-nav'>
+      <%= link_to raw('&#x1F860;'), categories_path, class: 'back-icon' %>
+      <h1 class='nav-title'>CATEGORY</h1>
+    </div>
+  <% elsif @new_expenditure_nav %>
+    <div class='new-object-nav'>
+      <%= link_to raw('&#x1F860;'), category_expenditures_path(@category), class: 'back-icon' %>
+      <h1 class='nav-title'>EXPENDITURE</h1>
+    </div>
+  <% elsif @expenditures_nav %>
+    <div class='new-object-nav'>
+      <%= link_to raw('&#x1F860;'), categories_path, class: 'back-icon' %>
+      <h1 class='nav-title'>EXPENDITURES</h1>
+    </div>
+  <% elsif @each_expenditure_nav %>
+    <div class='new-object-nav'>
+      <%= link_to raw('&#x1F860;'), category_expenditures_path(@category), class: 'back-icon' %>
+      <h1 class='nav-title'>DETAILS</h1>
+    </div>
+  <% else %>
+    <div class='common-nav'>
+      <button id="hamburger-button">&#9776;</button>
+      <div id="nav-links-container">
+        <div class='ham-links'>
+        <button id='home-button'><%= link_to "Home", current_user ? authenticated_root_path : unauthenticated_root_path, class: 'home-allexp-signout-links' %></button>
+        <button id='allexp-button'><%= link_to "All Expenditures", current_user ? all_expenditures_path : unauthenticated_root_path, class: 'home-allexp-signout-links' %></button>
+        <% if current_user %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, id: 'signout-button' %>
+        <% end %>
+        </div>
+      </div>
+      <h1 id="common-nav-title">BudgetMap</h1>
+    </div>
+  <% end %>
+</nav>

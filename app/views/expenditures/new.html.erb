@@ -1,0 +1,26 @@
+<div class="new-object-outer-container">
+  <%= form_with model: @expenditure, url: category_expenditures_path, class: "add-expenditure-form verticle-flex-display" do |form| %>
+    <div class='form-fields'>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, autofocus: true, autocomplete: "name", placeholder: "e.g. Chocolate" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :amount, "Amount $" %>
+        <%= form.text_field :amount, autofocus: true, autocomplete: "amount", placeholder: "e.g. 0.0" %>
+      </div>
+
+      <div class="checkboxs">
+        <%= form.label :categories, 'Select Categories:' %>
+        <div class='all-checkboxes'>
+        <%= form.collection_check_boxes :category_ids, current_user.categories, :id, :name, { checked: @current_category_id }, include_hidden: false %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field save-outer">
+      <%= form.submit "Save", class: "save-button" %>
+    </div>
+  <% end %>
+</div>

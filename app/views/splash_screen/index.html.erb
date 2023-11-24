@@ -1,0 +1,9 @@
+<div class="splash-container verticle-flex-display">
+  <div class='splash-logo-img-outer verticle-flex-display'>
+    <%= image_tag("BudgetMapLogo.png", alt: "Splash-logo-img", id: "splash-img") %>
+  </div>
+  <div class = 'login-signup-outer verticle-flex-display'>
+    <button id="login-button"><%= link_to "Login", new_user_session_path, class: 'login-signup-links' %></button>
+    <button id="signup-button"><%= link_to "Sign Up", new_user_registration_path, class: 'login-signup-links' %></button>
+  </div>
+</div>

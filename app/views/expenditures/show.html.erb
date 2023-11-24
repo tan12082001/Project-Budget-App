@@ -1,0 +1,16 @@
+<div class="each-expenditure-container verticle-flex-display">
+    <div class='expenditure-info verticle-flex-display'>
+        <div class='category-names'>
+            <p>Categories included: </p>
+            <% @expenditure.categories.each do |category| %>
+                <p>Category name: <%= category.name %></p>
+            <% end %>
+        </div>
+        <p class='detaile-page-tile'>Expenditure name: <%= @expenditure.name %></p>
+        <p class='detaile-page-tile'>Expenditure created at: <%= @expenditure.created_at.strftime('%d %b %Y') %></p>
+        <p class='detaile-page-tile'>TOTAL PAYMENT: $<%= @expenditure.amount %></p>
+    </div>
+    <div class="delete-outer">
+       <%= button_to 'DELETE', category_expenditure_path(@category, @expenditure), method: :delete, id: 'expenditure-delete-button' %>
+    </div>
+</div>
