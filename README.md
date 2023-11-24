@@ -8,6 +8,8 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+  - [🎥 Video Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -60,6 +62,26 @@
 - **Create new categories to refer specific spendings of an user.**
 - **User can see the Expenditures history based on the selected category**
 - **User can see the total budget from all the spendings**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo
+
+ <a name="live-demo"></a>
+
+- [BudgetMap App](https://budgetmap-v1.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- VIDEO PRESENTATION -->
+
+## 🎥 Video Presentation
+
+ <a name="video-presentation"></a>
+
+- [Project Video presentation](https://www.loom.com/share/8babe998741440c6957e58797ad50b54?sid=d70a754c-c8e5-482a-aa3a-3242a5ea758c)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,8 +156,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Deploy the application using render or netlify**
-- [ ] **Improve the UI of the blog app**
+- [ ] **Improve the UI of the Desktop version of the app**
+- [ ] **Update custome navs for better performance**
 - [ ] **Implement a new page that shows recent big expenditures despite their categories.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
