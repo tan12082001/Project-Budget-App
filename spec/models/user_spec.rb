@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-    before :all do
-        Expenditure.delete_all
-        Category.delete_all
-        User.delete_all
+  before :all do
+    Expenditure.delete_all
+    Category.delete_all
+    User.delete_all
 
-        @user = User.create(id: 1, name: 'User', surname: 'one', email: 'test@gmail.com', password: '123456')
-    end
+    @user = User.create(id: 1, name: 'User', surname: 'one', email: 'test@gmail.com', password: '123456')
+  end
 
   context '#create instance' do
     it 'User should be valid' do
