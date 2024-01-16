@@ -1,6 +1,6 @@
 databases:
   - name: full-stack-capstone
-    databaseName: full_stack_capstone
+    databaseName: full_stack_capstone_43wc
     user: full_stack_capstone_user
 
 services:
