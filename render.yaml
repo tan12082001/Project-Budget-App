@@ -1,7 +1,7 @@
 databases:
-  - name: rails-projects
-    databaseName: budget_app_production_ejzz
-    user: budget_app_production_ejzz_user
+  - name: full-stack-capstone
+    databaseName: full_stack_capstone
+    user: full_stack_capstone_user
 
 services:
   - type: web
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: rails-projects
+          name: full-stack-capstone
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
